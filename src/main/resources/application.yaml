@@ -1,0 +1,36 @@
+spring:
+  application:
+  name: firstprojactEmail
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+
+  mail:
+    host: smtp.gmail.com # 1
+    port: 587 # 2
+    username: ${mail.username} # 3
+    password: ${mail.password} # 4
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true # 5
+          timeout: 5000 # 6
+          starttls:
+            enable: true # 7
+          ssl:
+            trust: smtp.gmail.com
+            enable: false
+          debug: true
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false

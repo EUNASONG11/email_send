@@ -2,16 +2,49 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>메일 발송</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임시 비밀번호 발송</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-<h1>메일 발송</h1>
+<h1>임시 비밀번호 발송</h1>
 
 <form th:action="@{/mail}" method="post">
-  <input name="address" placeholder="이메일 주소"> <br>
-  <input name="title" placeholder="제목"> <br>
-  <textarea name="message" placeholder="메일 내용을 입력해주세요." cols="60" rows="20"></textarea>
-  <button>발송</button>
+  <label for="address">이메일 주소</label>
+  <input type="email" id="address" name="address" placeholder="이메일 주소를 입력해주세요." required> <br>
+
+  <label for="title">제목</label>
+  <input type="text" id="title" name="title" placeholder="메일 제목을 입력해주세요." required> <br>
+
+  <button type="submit">임시 비밀번호 발송</button>
 </form>
 </body>
 </html>

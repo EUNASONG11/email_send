@@ -10,5 +10,4 @@ import lombok.Setter;
 public class MailDto {
     public String address;
     private String title;
-    private String message;
 }
